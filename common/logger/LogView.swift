@@ -81,10 +81,10 @@ class LogView: TextView, LogNode {
 		appendIfNotNull(outputBuilder, exceptionStr, delimiter)
 		// In case this was originally called from an AsyncTask or some other off-UI thread,
 		// make sure the update occurs within the UI thread.
-		(getContext() as? Activity)?.runOnUiThread(Thread(Runnable(run: {
+		(getContext() as? Activity)?.runOnUiThread(Thread(Runnable {
 			// Display the text we just generated within the LogView.
 			self.appendToLog(outputBuilder.toString());
-		})))
+		}))
 
 		next?.println(priority, tag, msg, tr)
 	}

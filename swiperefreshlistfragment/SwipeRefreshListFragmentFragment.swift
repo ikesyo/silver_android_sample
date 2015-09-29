@@ -63,11 +63,11 @@ class SwipeRefreshListFragmentFragment: SwipeRefreshListFragment {
 		//  * refreshes the content. Call the same method in response to the Refresh action from the
 		//  * action bar.
 		//  */
-		setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener(onRefresh: {
+		setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
 			Log.i(SwipeRefreshListFragmentFragment.LOG_TAG, "onRefresh called from SwipeRefreshLayout")
 			
 			self.initiateRefresh()
-		}))
+		})
 	}
 
 	override func onCreateOptionsMenu(_ menu: Menu!, _ inflater: MenuInflater!) {
