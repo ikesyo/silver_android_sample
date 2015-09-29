@@ -1,2 +1,5 @@
 bin
 obj
+*.elements.user
+*.sln.fire.user
+*.sln.fire.cache
