@@ -48,12 +48,13 @@
         <Folder Include="res\"/>
         <Folder Include="res\values\"/>
         <Folder Include="res\layout\"/>
-        <Folder Include="logger"/>
-        <Folder Include="dummydata"/>
-        <Folder Include="activities"/>
-        <Folder Include="view"/>
         <Folder Include="swiperefreshlistfragment"/>
         <Folder Include="res\menu"/>
+        <Folder Include="common"/>
+        <Folder Include="common\dummydata"/>
+        <Folder Include="common\logger"/>
+        <Folder Include="common\view"/>
+        <Folder Include="common\activities"/>
     </ItemGroup>
     <ItemGroup>
         <None Include="res\layout\activity_main.layout-xml">
@@ -90,15 +91,15 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="swiperefreshlistfragment\MainActivity.swift"/>
-        <Compile Include="logger\Log.swift"/>
-        <Compile Include="logger\LogNode.swift"/>
-        <Compile Include="logger\LogView.swift"/>
-        <Compile Include="logger\LogWrapper.swift"/>
-        <Compile Include="logger\MessageOnlyLogFilter.swift"/>
-        <Compile Include="dummydata\Cheeses.swift"/>
-        <Compile Include="activities\SampleActivityBase.swift"/>
-        <Compile Include="view\SlidingTabLayout.swift"/>
-        <Compile Include="view\SlidingTabStrip.swift"/>
+        <Compile Include="common\logger\Log.swift"/>
+        <Compile Include="common\logger\LogNode.swift"/>
+        <Compile Include="common\logger\LogView.swift"/>
+        <Compile Include="common\logger\LogWrapper.swift"/>
+        <Compile Include="common\logger\MessageOnlyLogFilter.swift"/>
+        <Compile Include="common\dummydata\Cheeses.swift"/>
+        <Compile Include="common\activities\SampleActivityBase.swift"/>
+        <Compile Include="common\view\SlidingTabLayout.swift"/>
+        <Compile Include="common\view\SlidingTabStrip.swift"/>
         <Compile Include="swiperefreshlistfragment\SwipeRefreshListFragment.swift"/>
         <Compile Include="swiperefreshlistfragment\SwipeRefreshListFragmentFragment.swift"/>
         <None Include="res\values\template-styles.android-xml"/>
@@ -109,7 +110,7 @@
         <None Include="res\menu\main.android-xml"/>
         <None Include="res\values\strings.android-xml"/>
         <None Include="res\values\fragmentview_strings.android-xml"/>
-        <Compile Include="logger\LogFragment.swift"/>
+        <Compile Include="common\logger\LogFragment.swift"/>
         <None Include="res\values\colors.android-xml"/>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)/RemObjects Software/Oxygene/RemObjects.Oxygene.Cooper.Android.targets"/>
