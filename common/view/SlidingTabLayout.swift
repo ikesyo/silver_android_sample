@@ -68,9 +68,9 @@ class SlidingTabLayout: HorizontalScrollView {
 
 	init(_ context: Context!, _ attrs: AttributeSet!, _ defStyle: Int32) {
 		super.init(context, attrs, defStyle)
-		//  // Disable the Scroll Bar
+		// Disable the Scroll Bar
 		setHorizontalScrollBarEnabled(false)
-		//  // Make sure that the Tab Strips fills this View
+		// Make sure that the Tab Strips fills this View
 		setFillViewport(true)
 		mTitleOffset = (TITLE_OFFSET_DIPS * Int32(getResources().getDisplayMetrics().density))
 		mTabStrip = SlidingTabStrip(context)
@@ -113,14 +113,14 @@ class SlidingTabLayout: HorizontalScrollView {
 		textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, TAB_VIEW_TEXT_SIZE_SP)
 		textView.setTypeface(Typeface.DEFAULT_BOLD)
 		if Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB {
-			//  // If we're running on Honeycomb or newer, then we can use the Theme's
-			//  // selectableItemBackground to ensure that the View has a pressed state
+			// If we're running on Honeycomb or newer, then we can use the Theme's
+			// selectableItemBackground to ensure that the View has a pressed state
 			var outValue: TypedValue! = TypedValue()
 			getContext().getTheme().resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
 			textView.setBackgroundResource(outValue.resourceId)
 		}
 		if Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH {
-			//  // If we're running on ICS or newer, enable all-caps to match the Action Bar tab style
+			// If we're running on ICS or newer, enable all-caps to match the Action Bar tab style
 			textView.setAllCaps(true)
 		}
 		var padding: Int32 = (TAB_VIEW_PADDING_DIPS * Int32(getResources().getDisplayMetrics().density)) 
@@ -135,7 +135,7 @@ class SlidingTabLayout: HorizontalScrollView {
 			var tabView: View! = nil
 			var tabTitleView: TextView! = nil
 			if mTabViewLayoutId != 0 {
-				//  // If there is a custom tab view layout id set, try and inflate it
+				// If there is a custom tab view layout id set, try and inflate it
 				tabView = LayoutInflater.from(getContext()).inflate(mTabViewLayoutId, mTabStrip, false)
 				tabTitleView = tabView.findViewById(mTabViewTextViewId) as? TextView
 			}
@@ -167,7 +167,7 @@ class SlidingTabLayout: HorizontalScrollView {
 		if selectedChild != nil {
 			var targetScrollX: Int32 = selectedChild.getLeft() + positionOffset
 			if (tabIndex > 0) | (positionOffset > 0) {
-				//  // If we're not at the first child and are mid-scroll, make sure we obey the offset
+				// If we're not at the first child and are mid-scroll, make sure we obey the offset
 				targetScrollX -= mTitleOffset
 			}
 			scrollTo(targetScrollX, 0)

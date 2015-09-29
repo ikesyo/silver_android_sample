@@ -156,7 +156,7 @@ class Cheeses {
 	class func randomList(_ count: Int32) -> ArrayList<String!>! {
 		var random: Random! = Random()
 		var items: HashSet<String!>! = HashSet<String!>()
-		//  // Make sure that don't infinity loop
+		// Make sure that don't infinity loop
 		count = Math.min(count, CHEESES.length)
 		while items.size() < count {
 			items.add(CHEESES[random.nextInt(CHEESES.length)])

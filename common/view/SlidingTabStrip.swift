@@ -72,14 +72,14 @@ class SlidingTabStrip: LinearLayout {
 	}
 
 	func setSelectedIndicatorColors(_ colors: Int32[]!) {
-		//  // Make sure that the custom colorizer is removed
+		// Make sure that the custom colorizer is removed
 		mCustomTabColorizer = nil
 		mDefaultTabColorizer.setIndicatorColors(colors)
 		invalidate()
 	}
 
 	func setDividerColors(_ colors: Int32[]!) {
-		//  // Make sure that the custom colorizer is removed
+		// Make sure that the custom colorizer is removed
 		mCustomTabColorizer = nil
 		mDefaultTabColorizer.setDividerColors(colors)
 		invalidate()
@@ -96,7 +96,7 @@ class SlidingTabStrip: LinearLayout {
 		var childCount: Int32 = getChildCount()
 		var dividerHeightPx: Int32 = Int32(Math.min(Math.max(0.0, mDividerHeight), 1.0)) * height 
 		var tabColorizer: SlidingTabLayout.TabColorizer! = mCustomTabColorizer != nil ? mCustomTabColorizer : mDefaultTabColorizer
-		//  // Thick colored underline below the current selection
+		// Thick colored underline below the current selection
 		if childCount > 0 {
 			var selectedTitle: View! = getChildAt(mSelectedPosition)
 			var `left`: Int32 = selectedTitle.getLeft()
@@ -107,7 +107,7 @@ class SlidingTabStrip: LinearLayout {
 				if color != nextColor {
 					color = blendColors(nextColor, color, mSelectionOffset)
 				}
-				//  // Draw the selection partway between the tabs
+				// Draw the selection partway between the tabs
 				var nextTitle: View! = getChildAt(mSelectedPosition + 1)
 				left = ((Int(mSelectionOffset) * nextTitle.getLeft()) + ((1 - Int(mSelectionOffset)) * `left`)) 
 				right = ((Int(mSelectionOffset) * nextTitle.getRight()) + ((1 - Int(mSelectionOffset)) * `right`)) 
@@ -115,9 +115,9 @@ class SlidingTabStrip: LinearLayout {
 			mSelectedIndicatorPaint.setColor(color)
 			canvas.drawRect(`left`, height - mSelectedIndicatorThickness, `right`, height, mSelectedIndicatorPaint)
 		}
-		//  // Thin underline along the entire bottom edge
+		// Thin underline along the entire bottom edge
 		canvas.drawRect(0, height - mBottomBorderThickness, getWidth(), height, mBottomBorderPaint)
-		//  // Vertical separators between the titles
+		// Vertical separators between the titles
 		var separatorTop: Int32 = (height - dividerHeightPx) / 2
 		for i in 0..<childCount {
 			var child: View! = getChildAt(i)

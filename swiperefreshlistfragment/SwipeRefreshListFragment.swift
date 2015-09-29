@@ -31,16 +31,16 @@ class SwipeRefreshListFragment: ListFragment {
 	var mSwipeRefreshLayout: SwipeRefreshLayout!
 
 	override func onCreateView(_ inflater: LayoutInflater!, _ container: ViewGroup!, _ savedInstanceState: Bundle!) -> View! {
-		//  // Create the list fragment's content view by calling the super method
+		// Create the list fragment's content view by calling the super method
 		var listFragmentView: View! = super.onCreateView(inflater, container, savedInstanceState)
-		//  // Now create a SwipeRefreshLayout to wrap the fragment's content view
+		// Now create a SwipeRefreshLayout to wrap the fragment's content view
 		mSwipeRefreshLayout = ListFragmentSwipeRefreshLayout(container.getContext(), parent: self)
-		//  // Add the list fragment's content view to the SwipeRefreshLayout, making sure that it fills
-		//  // the SwipeRefreshLayout
+		// Add the list fragment's content view to the SwipeRefreshLayout, making sure that it fills
+		// the SwipeRefreshLayout
 		mSwipeRefreshLayout.addView(listFragmentView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-		//  // Make sure that the SwipeRefreshLayout will fill the fragment
+		// Make sure that the SwipeRefreshLayout will fill the fragment
 		mSwipeRefreshLayout.setLayoutParams(ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
-		//  // Now return the SwipeRefreshLayout as this fragment's content view
+		// Now return the SwipeRefreshLayout as this fragment's content view
 		return mSwipeRefreshLayout
 	}
 
@@ -99,12 +99,12 @@ class SwipeRefreshListFragment: ListFragment {
 
 	class func canListViewScrollUp(_ listView: ListView!) -> Bool {
 		if android.os.Build.VERSION.SDK_INT >= 14 {
-			//  // For ICS and above we can call canScrollVertically() to determine this
+			// For ICS and above we can call canScrollVertically() to determine this
 			return ViewCompat.canScrollVertically(listView, -1)
 		}
 		else {
-			//  // Pre-ICS we need to manually check the first visible item and the child view's top
-			//  // value
+			// Pre-ICS we need to manually check the first visible item and the child view's top
+			// value
 			return (listView.getChildCount() > 0) & ((listView.getFirstVisiblePosition() > 0) | (listView.getChildAt(0).getTop() < listView.getPaddingTop()))
 		}
 	}

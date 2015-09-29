@@ -36,7 +36,7 @@ class LogView: TextView, LogNode {
 
 	func println(_ priority: Int32, _ tag: String!, _ msg: String!, _ tr: Throwable!) {
 		var priorityStr: String! = nil
-		//  // For the purposes of this View, we want to print the priority as readable text.
+		// For the purposes of this View, we want to print the priority as readable text.
 		switch priority {
 			case android.util.Log.VERBOSE: {
 				priorityStr = "VERBOSE"
@@ -66,21 +66,21 @@ class LogView: TextView, LogNode {
 				break
 			}
 		}
-		//  // Handily, the Log class has a facility for converting a stack trace into a usable string.
+		// Handily, the Log class has a facility for converting a stack trace into a usable string.
 		var exceptionStr: String! = nil
 		if tr != nil {
 			exceptionStr = android.util.Log.getStackTraceString(tr)
 		}
-		//  // Take the priority, tag, message, and exception, and concatenate as necessary
-		//  // into one usable line of text.
+		// Take the priority, tag, message, and exception, and concatenate as necessary
+		// into one usable line of text.
 		var outputBuilder: StringBuilder! = StringBuilder()
 		var delimiter: String! = "\t"
 		appendIfNotNull(outputBuilder, priorityStr, delimiter)
 		appendIfNotNull(outputBuilder, tag, delimiter)
 		appendIfNotNull(outputBuilder, msg, delimiter)
 		appendIfNotNull(outputBuilder, exceptionStr, delimiter)
-		//  // In case this was originally called from an AsyncTask or some other off-UI thread,
-		//  // make sure the update occurs within the UI thread.
+		// In case this was originally called from an AsyncTask or some other off-UI thread,
+		// make sure the update occurs within the UI thread.
 		(getContext() as? Activity)?.runOnUiThread(Thread(Runnable(run: {
 			// Display the text we just generated within the LogView.
 			self.appendToLog(outputBuilder.toString());
