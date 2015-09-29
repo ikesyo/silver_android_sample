@@ -49,6 +49,7 @@
         <Folder Include="res\values\"/>
         <Folder Include="res\layout\"/>
         <Folder Include="logger"/>
+        <Folder Include="dummydata"/>
     </ItemGroup>
     <ItemGroup>
         <None Include="res\values\strings.android-xml">
@@ -89,6 +90,7 @@
         <Compile Include="logger\LogView.swift"/>
         <Compile Include="logger\LogWrapper.swift"/>
         <Compile Include="logger\MessageOnlyLogFilter.swift"/>
+        <Compile Include="dummydata\Cheeses.swift"/>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)/RemObjects Software/Oxygene/RemObjects.Oxygene.Cooper.Android.targets"/>
 </Project>
