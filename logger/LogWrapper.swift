@@ -21,35 +21,28 @@ import android.util
 //  * normal DDMS output can be one of the many targets receiving and outputting logs simultaneously.
 //  */
 class LogWrapper: LogNode {
-	//  // For piping:  The next node to receive Log data after this one has done its work.
-	var mNext: LogNode!
-
-	func getNext() -> LogNode! {
-		return mNext
-	}
-
-	func setNext(_ node: LogNode!) {
-		mNext = node
-	}
+	// For piping:  The next node to receive Log data after this one has done its work.
+	var next: LogNode?
 
 	func println(_ priority: Int32, _ tag: String!, _ msg: String!, _ tr: Throwable!) {
-		//  // There actually are log methods that don't take a msg parameter.  For now,
-		//  // if that's the case, just convert null to the empty string and move on.
+		// There actually are log methods that don't take a msg parameter.  For now,
+		// if that's the case, just convert null to the empty string and move on.
 		var useMsg: String! = msg
 		if useMsg == nil {
 			useMsg = ""
 		}
-		//  // If an exeption was provided, convert that exception to a usable string and attach
-		//  // it to the end of the msg method.
+
+		// If an exeption was provided, convert that exception to a usable string and attach
+		// it to the end of the msg method.
 		if tr != nil {
 			msg += ("\r" + android.util.Log.getStackTraceString(tr))
 		}
-		//  // This is functionally identical to Log.x(tag, useMsg);
-		//  // For instance, if priority were Log.VERBOSE, this would be the same as Log.v(tag, useMsg)
+		
+		// This is functionally identical to Log.x(tag, useMsg);
+		// For instance, if priority were Log.VERBOSE, this would be the same as Log.v(tag, useMsg)
 		android.util.Log.println(priority, tag, useMsg)
-		//  // If this isn't the last node in the chain, move things along.
-		if mNext != nil {
-			mNext.println(priority, tag, msg, tr)
-		}
+		
+		// If this isn't the last node in the chain, move things along.
+		next?.println(priority, tag, msg, tr)
 	}
 }

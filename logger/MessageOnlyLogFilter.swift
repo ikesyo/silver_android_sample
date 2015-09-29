@@ -1,11 +1,11 @@
-//  /*
+﻿//  /*
 //  * Copyright (C) 2013 The Android Open Source Project
 //  *
 //  * Licensed under the Apache License, Version 2.0 (the "License");
 //  * you may not use this file except in compliance with the License.
 //  * You may obtain a copy of the License at
 //  *
-//  *      http://www.apache.org/licenses/LICENSE-2.0
+//  *	  http://www.apache.org/licenses/LICENSE-2.0
 //  *
 //  * Unless required by applicable law or agreed to in writing, software
 //  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,26 +20,15 @@
 //  * just easy-to-read message updates as they're happening.
 //  */
 class MessageOnlyLogFilter: LogNode {
-    var mNext: LogNode!
+	var next: LogNode?
 
-    init(_ next: LogNode!) {
-        mNext = next
-    }
+	init(_ next: LogNode?) {
+		next = next
+	}
 
-    init() {
-    }
+	init() {}
 
-    func println(_ priority: Int32, _ tag: String!, _ msg: String!, _ tr: Throwable!) {
-        if mNext != nil {
-            getNext().println(Log.NONE, nil, msg, nil)
-        }
-    }
-
-    func getNext() -> LogNode! {
-        return mNext
-    }
-
-    func setNext(_ node: LogNode!) {
-        mNext = node
-    }
+	func println(_ priority: Int32, _ tag: String!, _ msg: String!, _ tr: Throwable!) {
+		next?.println(Log.NONE, nil, msg, nil)
+	}
 }

@@ -85,17 +85,8 @@ class LogView: TextView, LogNode {
 			// Display the text we just generated within the LogView.
 			self.appendToLog(outputBuilder.toString());
 		})))
-		if mNext != nil {
-			mNext.println(priority, tag, msg, tr)
-		}
-	}
 
-	func getNext() -> LogNode! {
-		return mNext
-	}
-
-	func setNext(_ node: LogNode!) {
-		mNext = node
+		next?.println(priority, tag, msg, tr)
 	}
 
 	func appendIfNotNull(_ source: StringBuilder!, _ addStr: String!, _ delimiter: String!) -> StringBuilder! {
@@ -108,8 +99,8 @@ class LogView: TextView, LogNode {
 		return source
 	}
 
-	//  // The next LogNode in the chain.
-	var mNext: LogNode!
+	// The next LogNode in the chain.
+	var next: LogNode?
 
 	func appendToLog(_ s: String!) {
 		append("\r" + s)

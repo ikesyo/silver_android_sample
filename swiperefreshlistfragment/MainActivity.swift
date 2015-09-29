@@ -27,8 +27,8 @@ import android.widget
 //  * on other devices it's visibility is controlled by an item on the Action Bar.
 //  */
 class MainActivity: SampleActivityBase {
-	let TAG: String! = "MainActivity"
-	//  // Whether the Log Fragment is currently shown
+	let TAG = "MainActivity"
+	// Whether the Log Fragment is currently shown
 	var mLogShown: Bool = false
 
 	override func onCreate(_ savedInstanceState: Bundle!) {
@@ -74,16 +74,20 @@ class MainActivity: SampleActivityBase {
 	}
 
 	override func initializeLogging() {
-		//  // Wraps Android's native log framework.
-		var logWrapper: LogWrapper! = LogWrapper()
-		//  // Using Log, front-end to the logging chain, emulates android.util.log method signatures.
-		Log.setLogNode(logWrapper)
-		//  // Filter strips out everything except the message text.
-		var msgFilter: MessageOnlyLogFilter! = MessageOnlyLogFilter()
-		logWrapper.setNext(msgFilter)
-		//  // On screen logging via a fragment with a TextView.
-		var logFragment: LogFragment! = getSupportFragmentManager().findFragmentById(R.id.log_fragment) as? LogFragment
-		msgFilter.setNext(logFragment.getLogView())
+		// Wraps Android's native log framework.
+		let logWrapper = LogWrapper()
+		// Using Log, front-end to the logging chain, emulates android.util.log method signatures.
+		Log.logNode = logWrapper
+
+		// Filter strips out everything except the message text.
+		let msgFilter = MessageOnlyLogFilter()
+		logWrapper.next = msgFilter
+
+		// On screen logging via a fragment with a TextView.
+		if let logFragment = getSupportFragmentManager().findFragmentById(R.id.log_fragment) as? LogFragment {
+			msgFilter.next = logFragment.getLogView()
+		}
+
 		Log.i(TAG, "Ready")
 	}
 }

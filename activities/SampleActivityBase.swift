@@ -21,7 +21,7 @@ import android.support.v4.app
 //  * Base launcher activity, to handle most of the common plumbing for samples.
 //  */
 class SampleActivityBase: FragmentActivity {
-	let TAG: String! = "SampleActivityBase"
+	let TAG = "SampleActivityBase"
 
 	override func onCreate(_ savedInstanceState: Bundle!) {
 		super.onCreate(savedInstanceState)
@@ -33,10 +33,11 @@ class SampleActivityBase: FragmentActivity {
 	}
 
 	func initializeLogging() {
-		//  // Using Log, front-end to the logging chain, emulates android.util.log method signatures.
-		//  // Wraps Android's native log framework
-		var logWrapper: LogWrapper! = LogWrapper()
-		Log.setLogNode(logWrapper)
+		// Using Log, front-end to the logging chain, emulates android.util.log method signatures.
+		// Wraps Android's native log framework
+		let logWrapper = LogWrapper()
+		Log.logNode = logWrapper
+
 		Log.i(TAG, "Ready")
 	}
 }

@@ -23,8 +23,8 @@
 //  * in LogNode.</p>
 //  */
 class Log {
-	//  // Grabbing the native values from Android's native logging facilities,
-	//  // to make for easy migration and interop.
+	// Grabbing the native values from Android's native logging facilities,
+	// to make for easy migration and interop.
 	static let NONE: Int32 = -1
 	static let VERBOSE: Int32 = android.util.Log.VERBOSE
 	static let DEBUG: Int32 = android.util.Log.DEBUG
@@ -32,21 +32,12 @@ class Log {
 	static let WARN: Int32 = android.util.Log.WARN
 	static let ERROR: Int32 = android.util.Log.ERROR
 	static let ASSERT: Int32 = android.util.Log.ASSERT
-	//  // Stores the beginning of the LogNode topology.
-	static var mLogNode: LogNode!
-
-	class func getLogNode() -> LogNode! {
-		return mLogNode
-	}
-
-	class func setLogNode(_ node: LogNode!) {
-		mLogNode = node
-	}
+	
+	// Stores the beginning of the LogNode topology.
+	static var logNode: LogNode?
 
 	class func println(_ priority: Int32, _ tag: String!, _ msg: String!, _ tr: Throwable!) {
-		if mLogNode != nil {
-			mLogNode.println(priority, tag, msg, tr)
-		}
+		logNode?.println(priority, tag, msg, tr)
 	}
 
 	class func println(_ priority: Int32, _ tag: String!, _ msg: String!) {
