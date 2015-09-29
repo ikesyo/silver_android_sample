@@ -51,6 +51,7 @@
         <Folder Include="logger"/>
         <Folder Include="dummydata"/>
         <Folder Include="activities"/>
+        <Folder Include="view"/>
     </ItemGroup>
     <ItemGroup>
         <None Include="res\values\strings.android-xml">
@@ -97,6 +98,8 @@
         <Compile Include="logger\MessageOnlyLogFilter.swift"/>
         <Compile Include="dummydata\Cheeses.swift"/>
         <Compile Include="activities\SampleActivityBase.swift"/>
+        <Compile Include="view\SlidingTabLayout.swift"/>
+        <Compile Include="view\SlidingTabStrip.swift"/>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)/RemObjects Software/Oxygene/RemObjects.Oxygene.Cooper.Android.targets"/>
 </Project>
