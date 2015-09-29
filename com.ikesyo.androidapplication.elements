@@ -52,12 +52,11 @@
         <Folder Include="dummydata"/>
         <Folder Include="activities"/>
         <Folder Include="view"/>
+        <Folder Include="swiperefreshlistfragment"/>
+        <Folder Include="res\menu"/>
     </ItemGroup>
     <ItemGroup>
-        <None Include="res\values\strings.android-xml">
-            <SubType>Content</SubType>
-        </None>
-        <None Include="res\layout\main.layout-xml">
+        <None Include="res\layout\activity_main.layout-xml">
             <SubType>Content</SubType>
         </None>
         <None Include="res\drawable-hdpi\icon.png">
@@ -90,7 +89,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="MainActivity.swift"/>
+        <Compile Include="swiperefreshlistfragment\MainActivity.swift"/>
         <Compile Include="logger\Log.swift"/>
         <Compile Include="logger\LogNode.swift"/>
         <Compile Include="logger\LogView.swift"/>
@@ -100,6 +99,18 @@
         <Compile Include="activities\SampleActivityBase.swift"/>
         <Compile Include="view\SlidingTabLayout.swift"/>
         <Compile Include="view\SlidingTabStrip.swift"/>
+        <Compile Include="swiperefreshlistfragment\SwipeRefreshListFragment.swift"/>
+        <Compile Include="swiperefreshlistfragment\SwipeRefreshListFragmentFragment.swift"/>
+        <None Include="res\values\template-styles.android-xml"/>
+        <None Include="res\values\template-dimens.android-xml"/>
+        <None Include="res\values\base-strings.android-xml"/>
+        <None Include="res\drawable-hdpi\tile.9.png"/>
+        <None Include="res\menu\main_menu.android-xml"/>
+        <None Include="res\menu\main.android-xml"/>
+        <None Include="res\values\strings.android-xml"/>
+        <None Include="res\values\fragmentview_strings.android-xml"/>
+        <Compile Include="logger\LogFragment.swift"/>
+        <None Include="res\values\colors.android-xml"/>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)/RemObjects Software/Oxygene/RemObjects.Oxygene.Cooper.Android.targets"/>
 </Project>
