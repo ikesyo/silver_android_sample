@@ -68,7 +68,7 @@ class LogView: TextView, LogNode {
 		}
 		// Handily, the Log class has a facility for converting a stack trace into a usable string.
 		var exceptionStr: String! = nil
-		if tr != nil {
+		if let tr = tr {
 			exceptionStr = android.util.Log.getStackTraceString(tr)
 		}
 		// Take the priority, tag, message, and exception, and concatenate as necessary
@@ -90,7 +90,7 @@ class LogView: TextView, LogNode {
 	}
 
 	func appendIfNotNull(_ source: StringBuilder!, _ addStr: String!, _ delimiter: String!) -> StringBuilder! {
-		if addStr != nil {
+		if let addStr = addStr {
 			if addStr.length() == 0 {
 				delimiter = ""
 			}

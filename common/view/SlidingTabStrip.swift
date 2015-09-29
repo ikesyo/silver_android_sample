@@ -95,7 +95,7 @@ class SlidingTabStrip: LinearLayout {
 		var height: Int32 = getHeight()
 		var childCount: Int32 = getChildCount()
 		var dividerHeightPx: Int32 = Int32(Math.min(Math.max(0.0, mDividerHeight), 1.0)) * height 
-		var tabColorizer: SlidingTabLayout.TabColorizer! = mCustomTabColorizer != nil ? mCustomTabColorizer : mDefaultTabColorizer
+		let tabColorizer: SlidingTabLayout.TabColorizer! = mCustomTabColorizer ?? mDefaultTabColorizer
 		// Thick colored underline below the current selection
 		if childCount > 0 {
 			var selectedTitle: View! = getChildAt(mSelectedPosition)

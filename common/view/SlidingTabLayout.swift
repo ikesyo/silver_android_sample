@@ -101,7 +101,8 @@ class SlidingTabLayout: HorizontalScrollView {
 	func setViewPager(_ viewPager: ViewPager!) {
 		mTabStrip.removeAllViews()
 		mViewPager = viewPager
-		if viewPager != nil {
+
+		if let viewPager = viewPager {
 			viewPager.setOnPageChangeListener(InternalViewPagerListener(self))
 			populateTabStrip()
 		}
@@ -153,7 +154,7 @@ class SlidingTabLayout: HorizontalScrollView {
 
 	override func onAttachedToWindow() {
 		super.onAttachedToWindow()
-		if mViewPager != nil {
+		if let mViewPager = mViewPager {
 			scrollToTab(mViewPager.getCurrentItem(), 0)
 		}
 	}
@@ -163,8 +164,8 @@ class SlidingTabLayout: HorizontalScrollView {
 		if ((tabStripChildCount == 0) | (tabIndex < 0)) | (tabIndex >= tabStripChildCount) {
 			return
 		}
-		var selectedChild: View! = mTabStrip.getChildAt(tabIndex)
-		if selectedChild != nil {
+		
+		if let selectedChild = mTabStrip.getChildAt(tabIndex) {
 			var targetScrollX: Int32 = selectedChild.getLeft() + positionOffset
 			if (tabIndex > 0) | (positionOffset > 0) {
 				// If we're not at the first child and are mid-scroll, make sure we obey the offset
@@ -187,21 +188,23 @@ class SlidingTabLayout: HorizontalScrollView {
 			if ((tabStripChildCount == 0) | (position < 0)) | (position >= tabStripChildCount) {
 				return
 			}
+			
 			mParent.mTabStrip.onViewPagerPageChanged(position, positionOffset)
+			
 			var selectedTitle: View! = mParent.mTabStrip.getChildAt(position)
 			var extraOffset: Int32 = 0
-			if selectedTitle != nil { extraOffset = Int(positionOffset) * selectedTitle.getWidth() }
-			mParent.scrollToTab(position, extraOffset)
-			if mParent.mViewPagerPageChangeListener != nil {
-				mParent.mViewPagerPageChangeListener.onPageScrolled(position, positionOffset, positionOffsetPixels)
+			if let selectedTitle = selectedTitle {
+				extraOffset = Int(positionOffset) * selectedTitle.getWidth()
 			}
+			mParent.scrollToTab(position, extraOffset)
+			
+			mParent.mViewPagerPageChangeListener?.onPageScrolled(position, positionOffset, positionOffsetPixels)
 		}
 
 		func onPageScrollStateChanged(_ state: Int32) {
 			mScrollState = state
-			if mParent.mViewPagerPageChangeListener != nil {
-				mParent.mViewPagerPageChangeListener.onPageScrollStateChanged(state)
-			}
+
+			mParent.mViewPagerPageChangeListener?.onPageScrollStateChanged(state)
 		}
 
 		func onPageSelected(_ position: Int32) {
@@ -209,9 +212,8 @@ class SlidingTabLayout: HorizontalScrollView {
 				mParent.mTabStrip.onViewPagerPageChanged(position, 0.0)
 				mParent.scrollToTab(position, 0)
 			}
-			if mParent.mViewPagerPageChangeListener != nil {
-				mParent.mViewPagerPageChangeListener.onPageSelected(position)
-			}
+			
+			mParent.mViewPagerPageChangeListener?.onPageSelected(position)
 		}
 	}
 
