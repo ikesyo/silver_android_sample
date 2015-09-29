@@ -1,88 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
-  <PropertyGroup>
-    <ProductVersion>3.5</ProductVersion>
-    <ProjectGuid>162277A4-C3CA-4702-9E2D-9E35D12BD9DB</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
-    <AllowLegacyCreate>False</AllowLegacyCreate>
-    <AllowLegacyOutParams>False</AllowLegacyOutParams>
-    <Name>com.ikesyo.androidapplication</Name>
-    <RootNamespace>com.ikesyo.androidapplication</RootNamespace>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <Optimize>false</Optimize>
-    <OutputPath>.\bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;TRACE;</DefineConstants>
-    <GenerateDebugInfo>True</GenerateDebugInfo>
-    <EnableAsserts>True</EnableAsserts>
-    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
-    <CaptureConsoleOutput>False</CaptureConsoleOutput>
-    <StartMode>Project</StartMode>
-    <RegisterForComInterop>False</RegisterForComInterop>
-    <CpuType>anycpu</CpuType>
-    <RuntimeVersion>v25</RuntimeVersion>
-    <XmlDoc>False</XmlDoc>
-    <XmlDocWarningLevel>WarningOnPublicMembers</XmlDocWarningLevel>
-    <WarnOnCaseMismatch>True</WarnOnCaseMismatch>
-    <EnableUnmanagedDebugging>False</EnableUnmanagedDebugging>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <Optimize>true</Optimize>
-    <OutputPath>.\bin\Release</OutputPath>
-    <GenerateDebugInfo>False</GenerateDebugInfo>
-    <EnableAsserts>False</EnableAsserts>
-    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
-    <CaptureConsoleOutput>False</CaptureConsoleOutput>
-    <StartMode>Project</StartMode>
-    <RegisterForComInterop>False</RegisterForComInterop>
-    <CpuType>anycpu</CpuType>
-    <RuntimeVersion>v25</RuntimeVersion>
-    <XmlDoc>False</XmlDoc>
-    <XmlDocWarningLevel>WarningOnPublicMembers</XmlDocWarningLevel>
-    <EnableUnmanagedDebugging>False</EnableUnmanagedDebugging>
-    <WarnOnCaseMismatch>True</WarnOnCaseMismatch>
-  </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-    <Folder Include="res\" />
-    <Folder Include="res\values\" />
-	<Folder Include="res\layout\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="res\values\strings.android-xml">
-      <SubType>Content</SubType>
-    </None>
-	<None Include="res\layout\main.layout-xml">
-      <SubType>Content</SubType>
-    </None>
-    <None Include="res\drawable-hdpi\icon.png">
-      <SubType>Content</SubType>
-    </None>
-    <None Include="res\drawable-mdpi\icon.png">
-      <SubType>Content</SubType>
-    </None>
-    <None Include="res\drawable-ldpi\icon.png">
-      <SubType>Content</SubType>
-    </None>
-	<None Include="res\drawable-xhdpi\icon.png">
-      <SubType>Content</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidManifest Include="Properties\AndroidManifest.android-xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="android.jar" />
-    <Reference Include="swift.jar">
-      <Private>True</Private>
-    </Reference>
-	<Reference Include="com.remobjects.elements.rtl.jar">
-		<Private>True</Private>
-	</Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="MainActivity.swift" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\RemObjects Software\Oxygene\RemObjects.Oxygene.Cooper.Android.targets" />
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build" ToolsVersion="4.0">
+    <PropertyGroup>
+        <ProductVersion>3.5</ProductVersion>
+        <ProjectGuid>162277A4-C3CA-4702-9E2D-9E35D12BD9DB</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+        <AllowLegacyCreate>False</AllowLegacyCreate>
+        <AllowLegacyOutParams>False</AllowLegacyOutParams>
+        <Name>com.ikesyo.androidapplication</Name>
+        <RootNamespace>com.ikesyo.androidapplication</RootNamespace>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <Optimize>false</Optimize>
+        <OutputPath>.\bin\Debug</OutputPath>
+        <DefineConstants>DEBUG;TRACE;</DefineConstants>
+        <GenerateDebugInfo>True</GenerateDebugInfo>
+        <EnableAsserts>True</EnableAsserts>
+        <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+        <CaptureConsoleOutput>False</CaptureConsoleOutput>
+        <StartMode>Project</StartMode>
+        <RegisterForComInterop>False</RegisterForComInterop>
+        <CpuType>anycpu</CpuType>
+        <RuntimeVersion>v25</RuntimeVersion>
+        <XmlDoc>False</XmlDoc>
+        <XmlDocWarningLevel>WarningOnPublicMembers</XmlDocWarningLevel>
+        <WarnOnCaseMismatch>True</WarnOnCaseMismatch>
+        <EnableUnmanagedDebugging>False</EnableUnmanagedDebugging>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <Optimize>true</Optimize>
+        <OutputPath>.\bin\Release</OutputPath>
+        <GenerateDebugInfo>False</GenerateDebugInfo>
+        <EnableAsserts>False</EnableAsserts>
+        <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+        <CaptureConsoleOutput>False</CaptureConsoleOutput>
+        <StartMode>Project</StartMode>
+        <RegisterForComInterop>False</RegisterForComInterop>
+        <CpuType>anycpu</CpuType>
+        <RuntimeVersion>v25</RuntimeVersion>
+        <XmlDoc>False</XmlDoc>
+        <XmlDocWarningLevel>WarningOnPublicMembers</XmlDocWarningLevel>
+        <EnableUnmanagedDebugging>False</EnableUnmanagedDebugging>
+        <WarnOnCaseMismatch>True</WarnOnCaseMismatch>
+    </PropertyGroup>
+    <ItemGroup>
+        <Folder Include="Properties\"/>
+        <Folder Include="res\"/>
+        <Folder Include="res\values\"/>
+        <Folder Include="res\layout\"/>
+        <Folder Include="logger"/>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="res\values\strings.android-xml">
+            <SubType>Content</SubType>
+        </None>
+        <None Include="res\layout\main.layout-xml">
+            <SubType>Content</SubType>
+        </None>
+        <None Include="res\drawable-hdpi\icon.png">
+            <SubType>Content</SubType>
+        </None>
+        <None Include="res\drawable-mdpi\icon.png">
+            <SubType>Content</SubType>
+        </None>
+        <None Include="res\drawable-ldpi\icon.png">
+            <SubType>Content</SubType>
+        </None>
+        <None Include="res\drawable-xhdpi\icon.png">
+            <SubType>Content</SubType>
+        </None>
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidManifest Include="Properties\AndroidManifest.android-xml"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="android.jar"/>
+        <Reference Include="swift.jar">
+            <Private>True</Private>
+        </Reference>
+        <Reference Include="com.remobjects.elements.rtl.jar">
+            <Private>True</Private>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="MainActivity.swift"/>
+        <Compile Include="logger\Log.swift"/>
+        <Compile Include="logger\LogNode.swift"/>
+        <Compile Include="logger\LogView.swift"/>
+        <Compile Include="logger\LogWrapper.swift"/>
+        <Compile Include="logger\MessageOnlyLogFilter.swift"/>
+    </ItemGroup>
+    <Import Project="$(MSBuildExtensionsPath)/RemObjects Software/Oxygene/RemObjects.Oxygene.Cooper.Android.targets"/>
 </Project>
