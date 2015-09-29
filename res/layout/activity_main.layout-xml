@@ -44,7 +44,7 @@
 		</ScrollView>
 
 		<fragment
-			  android:name="com.ikesyo.androidapplication.LogFragment"
+			  android:name="com.ikesyo.silver_android_sample.LogFragment"
 			  android:id="@+id/log_fragment"
 			  android:layout_width="match_parent"
 			  android:layout_height="match_parent" />

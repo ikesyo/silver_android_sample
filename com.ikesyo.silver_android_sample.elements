@@ -7,8 +7,8 @@
         <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
         <AllowLegacyCreate>False</AllowLegacyCreate>
         <AllowLegacyOutParams>False</AllowLegacyOutParams>
-        <Name>com.ikesyo.androidapplication</Name>
-        <RootNamespace>com.ikesyo.androidapplication</RootNamespace>
+        <Name>com.ikesyo.silver_android_sample</Name>
+        <RootNamespace>com.ikesyo.silver_android_sample</RootNamespace>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
         <Optimize>false</Optimize>
