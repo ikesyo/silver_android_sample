@@ -40,14 +40,14 @@ import android.widget
  * Simple fraggment which contains a LogView and uses is to output log data it receives
  * through the LogNode interface.
  */
-class LogFragment: Fragment {
+public class LogFragment: Fragment {
 
 	var mLogView: LogView!
 	var mScrollView: ScrollView!
 
-	init() {}
+	public init() {}
 
-	func inflateViews() -> View! {
+	public func inflateViews() -> View! {
 		mScrollView = ScrollView(getActivity())
 		let scrollParams = ViewGroup.LayoutParams(
 				ViewGroup.LayoutParams.MATCH_PARENT,
@@ -76,14 +76,14 @@ class LogFragment: Fragment {
 		return mScrollView;
 	}
 
-	func onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle) -> View! {
+	override public func onCreateView(inflater: LayoutInflater!, _ container: ViewGroup!, _ savedInstanceState: Bundle!) -> View! {
 		var result = inflateViews()
 
 		mLogView.addTextChangedListener(MyTextWatcher(self))
 		return result
 	}
 
-	func getLogView() -> LogView! {
+	public func getLogView() -> LogView! {
 		return mLogView
 	}
 }

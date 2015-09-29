@@ -46,7 +46,7 @@ class LogWrapper: LogNode {
 		}
 		//  // This is functionally identical to Log.x(tag, useMsg);
 		//  // For instance, if priority were Log.VERBOSE, this would be the same as Log.v(tag, useMsg)
-		Log.println(priority, tag, useMsg)
+		android.util.Log.println(priority, tag, useMsg)
 		//  // If this isn't the last node in the chain, move things along.
 		if mNext != nil {
 			mNext.println(priority, tag, msg, tr)
